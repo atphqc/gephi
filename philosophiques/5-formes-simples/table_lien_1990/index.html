@@ -1,0 +1,123 @@
+<!-- Tableau de données avec Tabulator -->
+<!-- Documentation : https://tabulator.info/ -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Données</title>
+ 
+    <!-- Tabulator (une seule version, fixe) -->
+    <link href="https://unpkg.com/tabulator-tables@6.4.0/dist/css/tabulator.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/tabulator-tables@6.4.0/dist/js/tabulator.min.js"></script>
+ 
+    <!-- PapaParse pour lire le CSV -->
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
+ 
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+ 
+      #search {
+        margin-top: 20px;
+        padding: 8px 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 300px;
+      }
+ 
+      #table {
+        margin-top: 16px;
+      }
+ 
+      /* Message d'erreur visible si le fetch échoue */
+      #erreur {
+        display: none;
+        margin-top: 20px;
+        padding: 12px 16px;
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        border-radius: 4px;
+        color: #856404;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+<h1>Tableau des liens</h1>
+    <p> Les 5 formes simples les plus fréquentes par auteur dans <em>Philosophiques</em> dans les années 1990. </p>
+    <input type="text" id="search" placeholder="Recherche globale...">
+ 
+    <div id="erreur">
+      ⚠️ Impossible de charger <code>data/tableau.csv</code>. 
+    </div>
+ 
+    <div id="table"></div>
+ 
+    <script>
+      fetch("data/tableau.csv")
+        .then(response => {
+          // Vérifie que la requête a réussi (code HTTP 200)
+          if (!response.ok) {
+            throw new Error("Fichier introuvable : " + response.status);
+          }
+          return response.text();
+        })
+ 
+        .then(csv => {
+          // Parse le CSV en objets JavaScript
+          const parsed = Papa.parse(csv, {
+            header: true,
+            skipEmptyLines: true
+          });
+ 
+          const data = parsed.data;
+ 
+          // Génère les colonnes automatiquement à partir des en-têtes du CSV
+          const columns = Object.keys(data[0]).map(col => ({
+            title: col,
+            field: col,
+            headerFilter: true   // filtre par colonne intégré dans l'en-tête
+          }));
+ 
+          // Crée le tableau Tabulator
+          const table = new Tabulator("#table", {
+            data: data,
+            columns: columns,
+            layout: "fitColumns",
+            pagination: "local",        // pagination côté client
+            paginationSize: 25,         // 25 lignes par page
+            paginationSizeSelector: [10, 25, 50, 100, 500, 1000],
+            movableColumns: true,       // colonnes déplaçables
+            responsiveLayout: "hide"    // masque les colonnes si écran trop étroit
+          });
+ 
+          // Recherche globale (filtre toutes les colonnes à la fois)
+          document.getElementById("search").addEventListener("keyup", function () {
+            const valeur = this.value.toLowerCase().trim();
+ 
+            if (valeur === "") {
+              // Réinitialise le filtre si le champ est vide
+              table.clearFilter();
+            } else {
+              // setFilter avec une fonction reçoit rowData (toutes les valeurs de la ligne)
+              table.setFilter(function (rowData) {
+                return Object.values(rowData).some(val =>
+                  String(val).toLowerCase().includes(valeur)
+                );
+              });
+            }
+          });
+        })
+ 
+        .catch(err => {
+          // Affiche le message d'erreur dans la page si le CSV ne se charge pas
+          console.error("Erreur de chargement :", err);
+          document.getElementById("erreur").style.display = "block";
+        });
+    </script>
+  </body>
+</html>
