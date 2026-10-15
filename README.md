@@ -1,7 +1,5 @@
 # Gephi
-Nouveau répertoire pour la version à jour des visualisations des matrices auteurs-formes réalisées sur Gephi.
-
-Les visualisations des matrices auteurs-formes pour les revues *Laval théologique et philosophique* et *Philosophiques*. Les visualisations sont réalisées sur [Gephi](https://gephi.org/), puis exportées en format Web grâce à l'extension [SigmaExporter](https://gephi.org/plugins/#/plugin/sigmaexporter). <br/><br/>
+Les version à jour des visualisations des matrices auteurs-formes pour les revues *Laval théologique et philosophique* et *Philosophiques*. Les visualisations sont réalisées sur [Gephi](https://gephi.org/), puis exportées en format Web grâce à l'extension [SigmaExporter](https://gephi.org/plugins/#/plugin/sigmaexporter). <br/><br/>
 
 ## Structure des URLs pour afficher les visualisations
 ```
