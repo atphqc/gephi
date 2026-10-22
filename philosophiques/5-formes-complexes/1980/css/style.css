@@ -3,6 +3,13 @@ padding: 0px;
 margin: 0px;
 }
 
+/*ajout pour ajuster le tite*/
+#title h1 {
+  font-size: 16px;
+  line-height: 1.3em;
+  padding-bottom: 6px;
+}
+
 .cf:before, .cf:after {
 	content: "";
 	display: table;
