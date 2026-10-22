@@ -128,13 +128,13 @@ function setupGUI(config) {
 		if (config.logo.text) logo+=" alt=\"" + config.logo.text + "\"";
 		logo+=">";
 	} else if (config.logo.text) {
-		logo="<h1>"+config.logo.text+"</h1>";
+		logo="<span>"+config.logo.text+"</span>";
 	}
 	if (config.logo.link) logo="<a href=\"" + config.logo.link + "\">"+logo+"</a>";
 	$("#maintitle").html(logo);
 
 	// #title
-	$("#title").html("<h2>"+config.text.title+"</h2>");
+	$("#title").html("<h1>"+config.text.title+"</h1>");
 
 	// #titletext
 	$("#titletext").html(config.text.intro);
