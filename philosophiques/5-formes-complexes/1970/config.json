@@ -42,7 +42,7 @@
     "graphProperties": {
       "maxEdgeSize": 0.5,
       "minEdgeSize": 0.5,
-      "minNodeSize": 2,
+      "minNodeSize": 1,
       "maxNodeSize": 7
     },
     "mouseProperties": {
