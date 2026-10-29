@@ -8,9 +8,9 @@
     "text": ""
   },
   "text": {
-    "more": "   ",
-    "intro": "Description courte ici",
-    "title": "Les 20 formes complexes les plus fréquentes par auteur dans <em> Philosophiques </em> dans les années 2010"
+    "more": "<h3>Comment lire ce graphe ?</h3><p>Chaque auteur (en bleu) est relié aux formes (en orange) qui reviennent le plus souvent dans ses articles publiés au cours de la décennie. La taille d’une forme varie selon le nombre d’auteurs qui l’emploient : les formes plus grandes sont donc partagées par un plus grand nombre d’auteurs et vice-versa. Les auteurs qui emploient des formes communes sont rapprochés dans l’espace du graphe. Les formes utilisées par un grand nombre d’auteurs tendent vers le centre du graphe, alors que celles propres à un seul auteur se trouvent en périphérie. Cliquer sur un auteur affiche ses formes, et cliquer sur une forme affiche les auteurs qui l’emploient.</p><h3>Méthode</h3><p>Le corpus comprend uniquement les articles en français de la revue, à l’exclusion des autres types de documents (comptes rendus, recensions, ouvrages reçus à la rédaction, etc.). Cette classification est issue du diffuseur des articles, Érudit. Seul le premier auteur de chaque article est comptabilisé.</p><p>Le texte des articles provient des fichiers XML diffusés par <a href='https://www.erudit.org/fr/' target='_blank' rel='noopener'>Érudit</a> et a fait l’objet d’un nettoyage automatisé (retrait des notes, des mots fonctionnels, des références, du bruit de numérisation, etc.). Des résidus peuvent subsister dans les numéros plus anciens.</p><h3>Crédits</h3><p>Cette visualisation a été réalisée dans le cadre du Projet d’analyse de textes assistée par ordinateur d’un corpus de philosophie québécoise par une équipe de l’École de bibliothéconomie et des sciences de l’information de l’Université de Montréal (Camille Demers, David Valentine, Farah Verret, Sara-Maude Bergeron et Yasmine Messikh, sous la direction du professeur Dominic Forest).</p><p>La visualisation a été créée dans le logiciel <a href='https://gephi.org/' target='_blank' rel='noopener'>Gephi</a> à partir des matrices auteurs–formes, avec l’algorithme de spatialisation <a href='http://yifanhu.net/PUB/graph_draw_small.pdf' target='_blank' rel='noopener'>Yifan Hu proportionnel</a>. Elle a été mise en ligne grâce à l’extension <a href='https://gephi.org/desktop/plugins/sigmaexporter/' target='_blank' rel='noopener'>SigmaExporter</a> de Scott A. Hale, de l’Oxford Internet Institute (Université d’Oxford), basée sur la bibliothèque <a href='https://www.sigmajs.org/' target='_blank' rel='noopener'>sigma.js</a>.</p><p>Merci à Érudit d’avoir fourni les articles.</p>",
+    "intro": "Réseau auteurs–formes (premiers auteurs uniquement) des articles publiés de 2010 à 2019.",
+    "title": "Les vingt formes complexes les plus fréquentes par auteur de <em> Philosophiques</em> dans les années 2010."
   },
   "legend": {
     "edgeLabel": "Auteur.e",
@@ -33,17 +33,17 @@
       "defaultLabelBGColor": "#ddd",
       "activeFontStyle": "bold",
       "defaultLabelColor": "#000",
-      "labelThreshold": 6,
+      "labelThreshold": 5,
       "defaultLabelHoverColor": "#fff",
       "fontStyle": "bold",
       "hoverFontStyle": "bold",
       "defaultLabelSize": 14
     },
     "graphProperties": {
-      "maxEdgeSize": 0.5,
-      "minEdgeSize": 0.5,
-      "minNodeSize": 2,
-      "maxNodeSize": 10
+      "maxEdgeSize": 1,
+      "minEdgeSize": 1,
+      "minNodeSize": 1.25,
+      "maxNodeSize": 5
     },
     "mouseProperties": {
       "maxRatio": 20,
