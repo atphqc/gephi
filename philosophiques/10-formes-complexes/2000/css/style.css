@@ -3,6 +3,14 @@ padding: 0px;
 margin: 0px;
 }
 
+/*ajout pour ajuster le titre*/
+#title h1 {
+  font-size: 14px;
+  line-height: 1.25em;
+  padding-bottom: 6px;
+  margin-top: 14px;
+}
+
 .cf:before, .cf:after {
 	content: "";
 	display: table;
@@ -220,10 +228,7 @@ margin-right:10px;
 }
 
 #maintitle {
-width: 100%;
-height: 72px;
-background-repeat: no-repeat;
-margin-bottom:20px;
+display: none;
 }
 
 #maintitle h1 {
